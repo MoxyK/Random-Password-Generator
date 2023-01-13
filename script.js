@@ -133,14 +133,19 @@ function getPasswordOptions() {
     console.log(getRandom(upperCasedCharacters));
   }
 
+  if(specialYes === false && numericYes === false && 
+    lowerCaseYes === false && upperCaseYes === false){
+    alert('Please select at least 1 character type');
+  }
+
 }
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-let indexRandom = Math.floor(Math.random() * arr.length);
-let random = arr[indexRandom];
+  let indexRandom = Math.floor(Math.random() * arr.length);
+  let random = arr[indexRandom];
 
-return random;
+  return random;
 }
 
 // Function to generate password with user input
