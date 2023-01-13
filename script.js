@@ -91,8 +91,48 @@ var upperCasedCharacters = [
 // Function to prompt user for password options
 function getPasswordOptions() {
   let length = parseInt(
-    prompt('How long would you like your Password to be?')
+    prompt('How long would you like your Password to be? (10-64 Characters')
   )
+  // Parameter Alerts
+  if(isNaN(length) === true){
+    alert('Must be provided as an integer');
+    return;
+  }
+  if(length < 10) {
+    alert('Must be minimum 10 characters');
+  }
+  if(length > 64) {
+    alert('Must be maximum 64 characters');
+  }
+
+  let specialYes = confirm('Use special characters?');
+  if(specialYes === true){
+    getRandom(specialCharacters);
+    // test
+    console.log(getRandom(specialCharacters));
+  }
+
+  let numericYes = confirm('Use numeric characters?');
+  if(numericYes === true){
+    getRandom(numericCharacters);
+    // test
+    console.log(getRandom(numericCharacters));
+  }
+
+  let lowerCaseYes = confirm('Use Lowercase characters?');
+  if(lowerCaseYes === true){
+    getRandom(lowerCasedCharacters);
+    // test
+    console.log(getRandom(lowerCasedCharacters));
+  }
+
+  let upperCaseYes = confirm('Use Uppercase characters?');
+  if(upperCaseYes === true){
+    getRandom(upperCasedCharacters);
+    // test
+    console.log(getRandom(upperCasedCharacters));
+  }
+
 }
 
 // Function for getting a random element from an array
